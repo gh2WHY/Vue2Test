@@ -13,7 +13,6 @@
           <template slot="header">
             <table-column-popover ref="popover" :columns="allTableColumns" :defaultColumns="defaultTableColumns"
               @change="handleChangeTableColumn" @reset="handleResetTableColumn"></table-column-popover>
-              序号
           </template>
         </el-table-column>
         <template v-for="item in tableColumns">
@@ -62,7 +61,6 @@
       })
     },
     created () {
-      console.log(this.$router,1212)
     /** (表格优化) 初始化获取store数据展示表格列 **/
       if (this.storeColumns.length > 0) {
         this.tableColumns = cloneDeep(this.storeColumns)
@@ -115,14 +113,14 @@
        * (表格优化)定制列变化触发表格渲染
        */
       handleChangeTableColumn (val) {
-        this.$store.commit('tableColumn/changePointColumn', val)
+        this.$store.commit('tableColumn/changeDeviceColumn', val)
         this.tableColumns = val
       },
     /**
      * (表格优化)定制列重置
      */
       handleResetTableColumn (val) {
-        this.$store.commit('tableColumn/changePointColumn', [])
+        this.$store.commit('tableColumn/changeDeviceColumn', [])
         this.tableColumns = val
       },
       /**

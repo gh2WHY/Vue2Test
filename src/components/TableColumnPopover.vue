@@ -1,11 +1,10 @@
 <template>
   <el-popover popper-class="iip-equipment-table-column-popover" trigger="click" @show="handleShow">
     <el-table :data="columns" ref="table" max-height="300" @select="handleSelection" @select-all="handleSelection">
-      <el-table-column type="selection" width="40"></el-table-column>
+      <el-table-column type="selection" width="50"></el-table-column>
       <el-table-column>
         <template slot="header">
-          <span>定制23232</span>
-          <i class="el-icon-refresh-right" style="padding-left: 10px; cursor: pointer;"
+          <i class="el-icon-s-grid" style="padding-left: 10px; cursor: pointer;"
              title="重置" @click="handleReset"></i>
         </template>
         <template slot-scope="scope">
@@ -14,7 +13,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <!-- <el-button slot="reference" type="text" icon="el-icon-s-grid">{{ $t('button.showColumns') }}</el-button> -->
+    <el-button slot="reference" type="text" icon="el-icon-s-grid"></el-button>
     <el-button style="padding-right:10px" slot="reference" type="text" class="iip-fa iip-fa-filter-2-line"></el-button>
   </el-popover>
 </template>
@@ -37,9 +36,6 @@ export default {
   },
   data () {
     return {
-      sourceTargetId: null,
-      popoverStyle: {},
-      visible: false,
       selectedList: []
     }
   },
