@@ -35,11 +35,3 @@ export function getTime(time) {
   }
 }
 
-export function Person() {
-
-}
-
-Person.prototype = {
-  name: 'why',
-  hobby: ['躺尸']
-}
