@@ -13,6 +13,11 @@
       class="static"
       v-bind:class="{ active: isActive, 'text-danger': hasError }"
     ></div>
+
+    <h1>事件委托</h1>
+    <ul @click="handleClick">
+      <li v-for="item in studentList" :key="item.no" :data-no="item.no">姓名：{{ item.name }} 学号：{{ item.no }}</li>
+    </ul>
   </div>
 </template>
 
@@ -38,6 +43,13 @@ export default {
       curLan: 'zh',
       isActive: true,
       hasError: false,
+      studentList: [
+        {name: 'WHY', no: 1},
+        {name: 'GH', no: 2},
+        {name: 'FYZ', no: 3},
+        {name: 'LRR', no: 4},
+        {name: 'ZGS', no: 5},
+      ]
     }
   },
   created() {
@@ -65,16 +77,29 @@ export default {
           key: 1,
         }
       })
+    },
+    handleClick(e) {
+      console.log(e.target.dataset.no);
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
   .box {
     width: 200px;
     height: 50px;
     background: pink;
   }
-
+  ul {
+    padding:0;
+    margin: 0;
+    list-style: none;
+    width: 300px;
+    li {
+      padding: 5px 15px;
+      margin-bottom: 10px;
+      background: pink;
+    }
+  }
 </style>
