@@ -54,6 +54,19 @@ export default {
   mounted() {
       this.getList();
       this.scroll();
+      Array.prototype.flattern = function() {
+  let res = []
+  for(let item of this) {
+    if(Array.isArray(item)) {
+      res = res.concat(item.flattern())
+    } else {
+      res.push(item)
+    }
+  }
+  return res
+}
+      let arr = [1,2,[3, [4,5], 6], 7]
+     console.log( arr.flattern())
   }
 }
 </script>
